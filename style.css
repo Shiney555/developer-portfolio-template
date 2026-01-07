@@ -1,0 +1,308 @@
+/* =========================
+   CSS VARIABLES
+========================= */
+:root {
+  --primary: #e685cc;
+  --bg: #ffffff;
+  --bg-soft: #f9fafb;
+  --text: #111827;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+/* DARK MODE */
+body.dark {
+  --bg: #0f172a;
+  --bg-soft: #020617;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: #1e293b;
+}
+
+/* =========================
+   RESET & BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--text-muted);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  padding: 1.5rem 0;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.nav a {
+  position: relative;
+  margin-left: 1.5rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+.theme-toggle {
+  margin-left: 1.5rem;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.theme-toggle:hover {
+  background: var(--bg-soft);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  padding: 6rem 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  color: var(--primary);
+}
+
+.hero p {
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+  display: inline-block;
+  background: var(--primary);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn {
+  min-height: 44px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+.about {
+  padding: 5rem 0;
+  background: var(--bg-soft);
+}
+
+.skills {
+  margin-top: 1.5rem;
+}
+
+.skills span {
+  display: inline-block;
+  margin: 0.4rem 0.4rem 0 0;
+  padding: 0.4rem 0.75rem;
+  background: var(--border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+.projects {
+  padding: 5rem 0;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+}
+
+.project-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.project-card a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact {
+  padding: 5rem 0;
+  background: var(--bg-soft);
+  text-align: center;
+}
+
+.contact p {
+  margin-bottom: 1.5rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .nav {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: row;
+  }
+
+  .theme-toggle {
+    margin-left: auto;
+  }
+  .hero {
+    padding: 4rem 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+  .hero,
+  .about,
+  .contact {
+    text-align: center;
+  }
+
+  .skills {
+    justify-content: center;
+  }
+}
