@@ -18,6 +18,37 @@ body.dark {
   --text-muted: #94a3b8;
   --border: #1e293b;
 }
+body.dark::before {
+  background: linear-gradient(
+    120deg,
+    rgba(241, 182, 225, 0.12),
+    rgba(96, 165, 250, 0.12),
+    rgba(167, 139, 250, 0.12)
+  );
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Global animated background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(241, 182, 225, 0.18),
+    rgba(147, 197, 253, 0.18),
+    rgba(196, 181, 253, 0.18)
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 15s ease infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
 
 /* =========================
    RESET & BASE
@@ -140,6 +171,42 @@ a {
   max-width: 520px;
   margin-bottom: 2rem;
 }
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(241, 182, 225, 0.25),
+    rgba(147, 197, 253, 0.25),
+    rgba(196, 181, 253, 0.25)
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+  z-index: -1;
+}
+
+/* Animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
 
 /* =========================
    BUTTONS
@@ -177,6 +244,9 @@ a {
   background: var(--bg-soft);
 }
 
+
+
+
 .skills {
   margin-top: 1.5rem;
 }
@@ -185,10 +255,35 @@ a {
   display: inline-block;
   margin: 0.4rem 0.4rem 0 0;
   padding: 0.4rem 0.75rem;
-  background: var(--border);
+  background: var(--primary);
+  color: #ffffff;
   border-radius: 999px;
   font-size: 0.85rem;
+  font-weight: 500;
 }
+.skills span:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.template-note {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.features {
+  margin-top: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.features li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
 
 /* =========================
    PROJECTS
